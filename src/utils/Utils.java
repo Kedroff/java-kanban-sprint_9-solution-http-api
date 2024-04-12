@@ -41,7 +41,7 @@ public class Utils {
         @Override
         public LocalDateTime read(final JsonReader jsonReader) throws IOException {
             if (jsonReader.peek() == JsonToken.NULL) {
-                jsonReader.nextNull(); // Пропускаем "null"
+                jsonReader.nextNull();
                 return null;
             } else {
                 String dateStr = jsonReader.nextString();

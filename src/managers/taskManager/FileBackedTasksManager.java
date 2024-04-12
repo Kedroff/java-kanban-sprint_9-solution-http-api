@@ -41,7 +41,7 @@ public class  FileBackedTasksManager extends InMemoryTasksManager implements Tas
         }
     }
 
-    private Task taskFromString(String value) { // поменять здесь чтение даты
+    private Task taskFromString(String value) {
         String[] line = value.split(",");
         if (line[1].equals(TypeOfTask.TASK.toString())) {
             Task task = new Task(line[2], line[4], TaskStatuses.valueOf(line[3]),
@@ -73,7 +73,7 @@ public class  FileBackedTasksManager extends InMemoryTasksManager implements Tas
     }
 
     private static String historyToString(HistoryManager manager) {
-        StringBuilder lineOfHistory = new StringBuilder("");
+        StringBuilder lineOfHistory = new StringBuilder();
         for (Task task : manager.getHistory()) {
             lineOfHistory.append(task.getID());
             lineOfHistory.append(",");
@@ -84,8 +84,8 @@ public class  FileBackedTasksManager extends InMemoryTasksManager implements Tas
     private static ArrayList<Integer> historyFromString(String value) {
         String[] split = value.split(",");
         ArrayList<Integer> historyList = new ArrayList<>();
-        for(int i = 0; i < split.length; i++) {
-            historyList.add(Integer.parseInt(split[i]));
+        for (String s : split) {
+            historyList.add(Integer.parseInt(s));
         }
         return historyList;
     }
