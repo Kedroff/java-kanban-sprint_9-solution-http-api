@@ -47,6 +47,6 @@ public class Main {
         Subtask subtaskFromJson = gson.fromJson(jsonString, Subtask.class);
         System.out.println(subtaskFromJson);
 
-        //
+
     }
 }
